@@ -27,7 +27,7 @@ libraryDependencies ++=
         "com.googlecode.kiama" %% "kiama" % "1.2.0",
         "junit" % "junit" % "4.10" % "test",
         "org.scalatest" %% "scalatest" % "1.7.1" % "test",
-        "org.scala-tools.testing" %% "scalacheck" % "1.9" % "test"
+        "org.scalacheck" %% "scalacheck" % "1.9" % "test"
     )
 
 resolvers += "Sonatype OSS Snapshots Repository" at
