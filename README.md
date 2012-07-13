@@ -60,5 +60,5 @@ Run the generated project to get a REPL as follows:
     exp> ^D
     >
 
-where `$name$` is the values you entered when running the `g8` command.
+where `$name$` is the value you entered when running the `g8` command.
 Use Control-D to get out of the REPL.
