@@ -3,7 +3,10 @@ I (inkytonik) commonly use. The generated project will be set up to use the
 [Kiama language processing library](http://kiama.googlecode.com) and will
 contain a simple example of Kiama use.
 
-See `inkytonik/plain.g8` for a simpler variant that doesn't depend on Kiama.
+See [`inkytonik/kiama-rats.g8`](https://github.com/inkytonik/kiama-rats.g8) for
+a variant that combines Kiama with the Rats! parser generator, and 
+[`inkytonik/plain.g8`](https://github.com/inkytonik/plain.g8) for a variant
+that does not use Kiama or Rats!.
 
 ### Properties
 
