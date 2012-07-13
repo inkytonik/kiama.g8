@@ -17,7 +17,7 @@ import org.kiama.util.ParsingREPL
 object Main extends ParsingREPL[Exp] with Parser {
 
     import Evaluator.value
-    import PrettyPrinter.{pretty, product}
+    import PrettyPrinter.{any, pretty}
     import Optimiser.optimise
 
     override def setup (args : Array[String]) : Boolean = {
