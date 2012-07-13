@@ -36,7 +36,7 @@ object Main extends ParsingREPL[Exp] with Parser {
     def process (e : Exp) {
         println ("e = " + e)
         println ("e tree:")
-        println (pretty (product (e)))
+        println (pretty (any (e)))
         println ("e tree pretty printed:")
         println (pretty (e))
         println ("value (e) = " + value (e))
