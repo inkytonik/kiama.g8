@@ -39,8 +39,10 @@ libraryDependencies ++=
         "org.scalacheck" %% "scalacheck" % "1.9" % "test"
     )
 
-resolvers += "Sonatype OSS Snapshots Repository" at
-    "https://oss.sonatype.org/content/repositories/snapshots"
+resolvers ++= Seq (
+    Resolver.sonatypeRepo ("releases"),
+    Resolver.sonatypeRepo ("snapshots")
+)
 
 // Source code locations
 
