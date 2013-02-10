@@ -19,7 +19,7 @@ class EvaluatorTests extends Parser with FunSuite with Checkers {
     def expectEval (term : String, result : Int) {
         parseAll (start, term) match {
             case Success (e, in) if in.atEnd =>
-                expect (result) (value (e))
+                expectResult (result) (value (e))
             case Success (_, in) =>
                 fail ("extraneous input at " + in.pos + ": " + term)
             case f =>
