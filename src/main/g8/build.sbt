@@ -8,7 +8,7 @@ organization := "$organization$"
 
 scalaVersion := "$scalaversion$"
 
-scalacOptions ++= Seq ("-deprecation", "-unchecked")
+scalacOptions ++= Seq ("-deprecation", "-feature", "-unchecked")
 
 // Interactive settings
 
