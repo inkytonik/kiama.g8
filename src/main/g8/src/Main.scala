@@ -16,14 +16,15 @@ import org.kiama.util.ParsingREPL
  */
 object Main extends ParsingREPL[Exp] with Parser {
 
+    import org.kiama.util.REPLConfig
     import Evaluator.value
     import PrettyPrinter.{pretty, pretty_any}
     import Optimiser.optimise
 
     val banner =
-        """Enter expressions using numbers, addition and multiplication.")
-          |println (" e.g., (1 + 2) * 3 or 0 + 4 * 1
-          """.stripMargin
+        """Enter expressions using numbers, addition and multiplication.
+          |  e.g., (1 + 2) * 3 or 0 + 4 * 1
+          |""".stripMargin
 
     override def prompt () = "exp> "
 
@@ -32,16 +33,17 @@ object Main extends ParsingREPL[Exp] with Parser {
      * Print its value. Optimise it and then print the optimised
      * expression and its value.
      */
-    def process (e : Exp) {
-        println ("e = " + e)
-        println ("e tree:")
-        println (pretty_any (e))
-        println ("e tree pretty printed:")
-        println (pretty (e))
-        println ("value (e) = " + value (e))
+    override def process (e : Exp, config : REPLConfig) {
+        val emitter = config.emitter
+        emitter.emitln ("e = " + e)
+        emitter.emitln ("e tree:")
+        emitter.emitln (pretty_any (e))
+        emitter.emitln ("e tree pretty printed:")
+        emitter.emitln (pretty (e))
+        emitter.emitln ("value (e) = " + value (e))
         val o = optimise (e)
-        println ("e optimised = " + o)
-        println ("value (e optimised) = " + value (o))
+        emitter.emitln ("e optimised = " + o)
+        emitter.emitln ("value (e optimised) = " + value (o))
     }
 
 }
