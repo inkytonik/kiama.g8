@@ -1,6 +1,6 @@
  trait Parser extends org.kiama.util.ParserUtilities {
 
-    lazy val start =
+    lazy val parser =
         phrase (exp)
 
     lazy val exp : PackratParser[Exp] =

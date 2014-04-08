@@ -4,7 +4,7 @@ import org.kiama.util.ParsingREPL
  * A top-level read-eval-print loop.  Reads a simple arithmetic expression
  * and prints it, its value and variants.  E.g.
  *
- * exp> 0 + 4 * 1  
+ * exp> 0 + 4 * 1
  * e = Add(Num(0),Mul(Num(4),Num(1)))
  * e tree:
  * Add (Num (0), Mul (Num (4), Num (1)))
@@ -20,11 +20,10 @@ object Main extends ParsingREPL[Exp] with Parser {
     import PrettyPrinter.{pretty, pretty_any}
     import Optimiser.optimise
 
-    override def setup (args : Array[String]) : Boolean = {
-        println ("Enter expressions using numbers, addition and multiplication.")
-        println (" e.g., (1 + 2) * 3 or 0 + 4 * 1")
-        true
-    }
+    val banner =
+        """Enter expressions using numbers, addition and multiplication.")
+          |println (" e.g., (1 + 2) * 3 or 0 + 4 * 1
+          """.stripMargin
 
     override def prompt () = "exp> "
 

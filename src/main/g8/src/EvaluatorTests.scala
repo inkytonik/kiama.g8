@@ -1,13 +1,10 @@
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
-import org.scalatest.FunSuite
+import org.scalatest.FunSuiteLike
 import org.scalatest.prop.Checkers
 
 /**
  * Expression evaluator tests.
  */
-@RunWith(classOf[JUnitRunner])
-class EvaluatorTests extends Parser with FunSuite with Checkers {
+class EvaluatorTests extends Parser with FunSuiteLike with Checkers {
 
     import Evaluator.value
     import org.scalacheck.Prop._
@@ -17,9 +14,9 @@ class EvaluatorTests extends Parser with FunSuite with Checkers {
      * or the comparison fail.
      */
     def expectEval (term : String, result : Int) {
-        parseAll (start, term) match {
+        parseAll (parser, term) match {
             case Success (e, in) if in.atEnd =>
-                expectResult (result) (value (e))
+                assertResult (result) (value (e))
             case Success (_, in) =>
                 fail ("extraneous input at " + in.pos + ": " + term)
             case f =>
@@ -32,7 +29,7 @@ class EvaluatorTests extends Parser with FunSuite with Checkers {
      * parsing or the comparison fail.
      */
     def evalTo (term : String, result : Int) : Boolean = {
-        parseAll (start, term) match {
+        parseAll (parser, term) match {
             case Success (e, in) if in.atEnd =>
                 value (e) == result
             case _ =>
