@@ -34,16 +34,16 @@ object Main extends ParsingREPL[Exp] with Parser {
      * expression and its value.
      */
     override def process (e : Exp, config : REPLConfig) {
-        val emitter = config.emitter
-        emitter.emitln ("e = " + e)
-        emitter.emitln ("e tree:")
-        emitter.emitln (pretty_any (e))
-        emitter.emitln ("e tree pretty printed:")
-        emitter.emitln (pretty (e))
-        emitter.emitln ("value (e) = " + value (e))
+        val output = config.output
+        output.emitln ("e = " + e)
+        output.emitln ("e tree:")
+        output.emitln (pretty_any (e))
+        output.emitln ("e tree pretty printed:")
+        output.emitln (pretty (e))
+        output.emitln ("value (e) = " + value (e))
         val o = optimise (e)
-        emitter.emitln ("e optimised = " + o)
-        emitter.emitln ("value (e optimised) = " + value (o))
+        output.emitln ("e optimised = " + o)
+        output.emitln ("value (e optimised) = " + value (o))
     }
 
 }

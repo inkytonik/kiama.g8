@@ -7,7 +7,7 @@ object Optimiser {
 
     /**
      * Try to optimise every expression in a tree. Do it bottom
-     * up so higher up tries get the advantage of things done 
+     * up so higher up tries get the advantage of things done
      * at lower levels.
      */
     lazy val optimiser =
@@ -17,7 +17,7 @@ object Optimiser {
      * Simplify an expression using simple equivalences.
      */
     lazy val simplifier =
-        rule {
+        rule[Exp] {
             case Add (Num (0), e)     => e
             case Add (e, Num (0))     => e
             case Mul (Num (1), e)     => e
