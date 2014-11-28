@@ -33,9 +33,9 @@ parallelExecution in Test := false
 
 libraryDependencies ++=
     Seq (
-        "com.googlecode.kiama" %% "kiama" % "1.6.0",
-        "com.googlecode.kiama" %% "kiama" % "1.6.0" % "test" classifier ("tests"),
-        "org.scalatest" %% "scalatest" % "2.1.3" % "test",
+        "com.googlecode.kiama" %% "kiama" % "1.8.0",
+        "com.googlecode.kiama" %% "kiama" % "1.8.0" % "test" classifier ("tests"),
+        "org.scalatest" %% "scalatest" % "2.2.0" % "test",
         "org.scalacheck" %% "scalacheck" % "1.11.4" % "test"
     )
 
