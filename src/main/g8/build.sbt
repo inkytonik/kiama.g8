@@ -35,8 +35,8 @@ libraryDependencies ++=
     Seq (
         "com.googlecode.kiama" %% "kiama" % "1.8.0",
         "com.googlecode.kiama" %% "kiama" % "1.8.0" % "test" classifier ("tests"),
-        "org.scalatest" %% "scalatest" % "2.2.0" % "test",
-        "org.scalacheck" %% "scalacheck" % "1.11.4" % "test"
+        "org.scalatest" %% "scalatest" % "2.2.4" % "test",
+        "org.scalacheck" %% "scalacheck" % "1.12.2" % "test"
     )
 
 resolvers ++= Seq (
