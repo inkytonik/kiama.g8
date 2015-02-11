@@ -1,10 +1,10 @@
-This is a giter8 template for sbt 0.11.x (or later) projects in the style that
+This is a giter8 template for sbt 0.13.x projects in the style that
 I (inkytonik) commonly use. The generated project will be set up to use the
 [Kiama language processing library](http://kiama.googlecode.com) and will
 contain a simple example of Kiama use.
 
 See [`inkytonik/kiama-rats.g8`](https://github.com/inkytonik/kiama-rats.g8) for
-a variant that combines Kiama with the Rats! parser generator, and 
+a variant that combines Kiama with the Rats! parser generator, and
 [`inkytonik/plain.g8`](https://github.com/inkytonik/plain.g8) for a variant
 that does not use Kiama or Rats!.
 
@@ -34,7 +34,7 @@ language processor which is a REPL for a simple expression language
 ### Usage
 
 Install [giter8 (g8)](http://github.com/n8han/giter8#readme) and [sbt
-0.11.x](https://github.com/harrah/xsbt/wiki/Setup) (or later).
+0.13.x](http://www.scala-sbt.org).
 
 In a shell run the following:
 
@@ -48,7 +48,7 @@ Run the generated project to get a REPL as follows:
     cd $name$
     sbt
     > run
-    exp> 0 + 4 * 1  
+    exp> 0 + 4 * 1
     e = Add(Num(0),Mul(Num(4),Num(1)))
     e tree:
     Add (Num (0), Mul (Num (4), Num (1)))
