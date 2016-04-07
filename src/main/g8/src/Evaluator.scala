@@ -1,15 +1,15 @@
+import org.bitbucket.inkytonik.kiama.attribution.Attribution
+
 /**
  * Use attribution to evaluate an expression.
  */
-object Evaluator {
-        
-    import org.kiama.attribution.Attribution.attr
+object Evaluator extends Attribution {
 
     val value : Exp => Int =
         attr {
             case Num (i)    => i
-            case Add (l, r) => (l->value) + (r->value)
-            case Mul (l, r) => (l->value) * (r->value)
+            case Add (l, r) => value (l) + value (r)
+            case Mul (l, r) => value (l) * value (r)
         }
 
 }

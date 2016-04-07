@@ -1,9 +1,7 @@
-import org.kiama.attribution.Attributable
-
 /**
  * Node of abstract syntax tree.
  */
-abstract class Exp extends Attributable
+abstract class Exp
 
 /**
  * Numeric literal expression.

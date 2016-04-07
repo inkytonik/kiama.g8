@@ -1,4 +1,7 @@
- trait Parser extends org.kiama.util.ParserUtilities {
+import org.bitbucket.inkytonik.kiama.parsing.Parsers
+import org.bitbucket.inkytonik.kiama.util.Positions
+
+class SyntaxAnalyser (positions : Positions) extends Parsers (positions) {
 
     lazy val parser =
         phrase (exp)

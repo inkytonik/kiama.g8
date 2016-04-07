@@ -1,6 +1,6 @@
 object Optimiser {
 
-    import org.kiama.rewriting.Rewriter.{attempt, bottomup, rewrite, rule}
+    import org.bitbucket.inkytonik.kiama.rewriting.Rewriter.{attempt, bottomup, rewrite, rule}
 
     def optimise (e : Exp) : Exp =
         rewrite (optimiser) (e)

@@ -1,26 +1,27 @@
-import org.scalatest.FunSuiteLike
-import org.scalatest.prop.Checkers
+import org.bitbucket.inkytonik.kiama.util.ParseTests
 
 /**
  * Expression evaluator tests.
  */
-class EvaluatorTests extends Parser with FunSuiteLike with Checkers {
+class EvaluatorTests extends ParseTests {
 
-    import Evaluator.value
+    import org.bitbucket.inkytonik.kiama.parsing.Success
+    import org.bitbucket.inkytonik.kiama.util.StringSource
     import org.scalacheck.Prop._
 
+    val parsers = new SyntaxAnalyser (positions)
+
     /**
-     * Parse and evaluate term then compare to result. Fail if any the parsing
-     * or the comparison fail.
+     * Parse and evaluate a term returning the result. `None` means
+     * the parse failed.
      */
-    def expectEval (term : String, result : Int) {
-        parseAll (parser, term) match {
+    def eval (term : String) : Option[Int] = {
+        val source = new StringSource (term)
+        parsers.parseAll (parsers.exp, source) match {
             case Success (e, in) if in.atEnd =>
-                assertResult (result) (value (e))
-            case Success (_, in) =>
-                fail ("extraneous input at " + in.pos + ": " + term)
-            case f =>
-                fail ("parse failure: " + f)
+                Some (Evaluator.value (e))
+            case _ =>
+                None
         }
     }
 
@@ -29,9 +30,10 @@ class EvaluatorTests extends Parser with FunSuiteLike with Checkers {
      * parsing or the comparison fail.
      */
     def evalTo (term : String, result : Int) : Boolean = {
-        parseAll (parser, term) match {
+        val source = new StringSource (term)
+        parsers.parseAll (parsers.exp, source) match {
             case Success (e, in) if in.atEnd =>
-                value (e) == result
+                Evaluator.value (e) == result
             case _ =>
                 false
         }
@@ -58,15 +60,15 @@ class EvaluatorTests extends Parser with FunSuiteLike with Checkers {
     }
 
     test ("a number evaluates to itself value") {
-        expectEval ("123", 123)
+        eval ("123") shouldBe Some (123)
     }
 
     test ("precedence is handled correctly") {
-        expectEval ("1 + 2 * 3", 7)
+        eval ("1 + 2 * 3") shouldBe Some (7)
     }
 
     test ("parentheses are handled correctly") {
-        expectEval ("(1 + 2) * 3", 9)
+        eval ("(1 + 2) * 3") shouldBe Some (9)
     }
 
 }

@@ -1,4 +1,4 @@
-import org.kiama.util.ParsingREPL
+import org.bitbucket.inkytonik.kiama.util.ParsingREPL
 
 /**
  * A top-level read-eval-print loop.  Reads a simple arithmetic expression
@@ -14,12 +14,15 @@ import org.kiama.util.ParsingREPL
  * e optimised = Num(4)
  * value (e optimised) = 4
  */
-object Main extends ParsingREPL[Exp] with Parser {
+object Main extends ParsingREPL[Exp] {
 
-    import org.kiama.util.REPLConfig
+    import org.bitbucket.inkytonik.kiama.util.{REPLConfig, Source}
     import Evaluator.value
-    import PrettyPrinter.{pretty, pretty_any}
+    import PrettyPrinter.{any, layout}
     import Optimiser.optimise
+
+    val parsers = new SyntaxAnalyser (positions)
+    val parser = parsers.exp
 
     val banner =
         """Enter expressions using numbers, addition and multiplication.
@@ -33,13 +36,13 @@ object Main extends ParsingREPL[Exp] with Parser {
      * Print its value. Optimise it and then print the optimised
      * expression and its value.
      */
-    override def process (e : Exp, config : REPLConfig) {
-        val output = config.output
+    override def process (source : Source, e : Exp, config : REPLConfig) {
+        val output = config.output()
         output.emitln ("e = " + e)
         output.emitln ("e tree:")
-        output.emitln (pretty_any (e))
+        output.emitln (layout (any (e)))
         output.emitln ("e tree pretty printed:")
-        output.emitln (pretty (e))
+        output.emitln (layout (e))
         output.emitln ("value (e) = " + value (e))
         val o = optimise (e)
         output.emitln ("e optimised = " + o)

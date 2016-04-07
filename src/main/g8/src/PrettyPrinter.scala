@@ -1,13 +1,13 @@
 /**
  * AST pretty-printing.
  */
-object PrettyPrinter extends org.kiama.output.PrettyPrinter {
+object PrettyPrinter extends org.bitbucket.inkytonik.kiama.output.PrettyPrinter {
 
     /**
      * Return a pretty-printed version of a node.
      */
-    def pretty (t : Exp) : String =
-        super.pretty (show (t))
+    def layout (t : Exp) : String =
+        super.layout (show (t))
 
     /**
      * Convert an expression node to a pretty-printing document.
