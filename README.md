@@ -13,7 +13,7 @@ that does not use Kiama or Rats!.
 * illustration of how to use simple Kiama features to build a simple
 language processor which is a REPL for a simple expression language
 
-* examples of using ScalaTest and ScalaCheck ests with Kiama-based programs
+* examples of using ScalaTest and ScalaCheck tests with Kiama-based programs
 
 * scalac options `-deprecation` and `-unchecked` turned on
 
@@ -23,11 +23,7 @@ language processor which is a REPL for a simple expression language
 
 * no project sub-directory
 
-* sources and resources located directly under `src`
-
 * stub `Main` object with a dummy `main` method
-
-* tests located with sources with suffix `Tests.scala`
 
 * Mercurial `.hgignore` file
 
