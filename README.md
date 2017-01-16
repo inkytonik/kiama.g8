@@ -33,10 +33,13 @@ language processor which is a REPL for a simple expression language
 
 ### Usage
 
-Install [giter8 (g8)](http://github.com/n8han/giter8#readme) and [sbt
-0.13.x](http://www.scala-sbt.org).
+Install [sbt 0.13.x](http://www.scala-sbt.org).
 
-In a shell run the following:
+If using sbt 0.13.13 or above:
+
+    sbt new inkytonik/kiama.g8
+
+Or alternatively, install [giter8 (g8)](http://github.com/n8han/giter8#readme) and in a shell run the following:
 
     g8 inkytonik/kiama
 
