@@ -35,7 +35,7 @@ libraryDependencies ++=
     Seq (
         "org.bitbucket.inkytonik.kiama" %% "kiama" % "2.2.0",
         "org.bitbucket.inkytonik.kiama" %% "kiama-extras" % "2.2.0",
-        "org.bitbucket.inkytonik.kiama" %% "kiama" % "2.2.0" % "test" classifier ("tests"),
+        "org.bitbucket.inkytonik.kiama" %% "kiama-extras" % "2.2.0" % "test" classifier ("tests"),
         "org.scalatest" %% "scalatest" % "3.0.5" % "test",
         "org.scalacheck" %% "scalacheck" % "1.13.5" % "test"
     )
