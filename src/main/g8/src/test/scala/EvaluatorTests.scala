@@ -6,10 +6,11 @@ import org.bitbucket.inkytonik.kiama.util.ParseTests
 class EvaluatorTests extends ParseTests {
 
     import org.bitbucket.inkytonik.kiama.parsing.Success
-    import org.bitbucket.inkytonik.kiama.util.StringSource
+    import org.bitbucket.inkytonik.kiama.util.{Positions, StringSource}
     import org.scalacheck.Prop._
 
-    val parsers = new SyntaxAnalyser (positions)
+    val positions = new Positions
+    val parsers = new SyntaxAnalyser(positions)
 
     /**
      * Parse and evaluate a term returning the result. `None` means

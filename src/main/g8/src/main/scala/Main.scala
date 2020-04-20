@@ -16,13 +16,11 @@ import org.bitbucket.inkytonik.kiama.util.ParsingREPL
  */
 object Main extends ParsingREPL[Exp] {
 
+    import org.bitbucket.inkytonik.kiama.parsing.ParseResult
     import org.bitbucket.inkytonik.kiama.util.{REPLConfig, Source}
     import Evaluator.value
     import PrettyPrinter.{any, layout}
     import Optimiser.optimise
-
-    val parsers = new SyntaxAnalyser (positions)
-    val parser = parsers.exp
 
     val banner =
         """Enter expressions using numbers, addition and multiplication.
@@ -30,6 +28,11 @@ object Main extends ParsingREPL[Exp] {
           |""".stripMargin
 
     override def prompt () = "exp> "
+
+    def parse(source : Source) : ParseResult[Exp] = {
+        val parsers = new SyntaxAnalyser(positions)
+        parsers.parseAll(parsers.exp, source)
+    }
 
     /**
      * Print the expression as a value, as a tree, pretty printed.
