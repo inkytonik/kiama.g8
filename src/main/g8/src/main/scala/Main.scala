@@ -36,7 +36,7 @@ object Main extends ParsingREPL[Exp] {
      * Print its value. Optimise it and then print the optimised
      * expression and its value.
      */
-    override def process (source : Source, e : Exp, config : REPLConfig) {
+    override def process (source : Source, e : Exp, config : REPLConfig) : Unit = {
         val output = config.output()
         output.emitln ("e = " + e)
         output.emitln ("e tree:")

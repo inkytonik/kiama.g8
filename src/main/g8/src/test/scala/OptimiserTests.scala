@@ -1,9 +1,10 @@
-import org.scalatest.{FunSuiteLike, Matchers}
+import org.scalatest.funsuite.AnyFunSuiteLike
+import org.scalatest.matchers.should.Matchers
 
 /**
  * Optimiser tests.
  */
-class OptimiserTests extends FunSuiteLike with Matchers {
+class OptimiserTests extends AnyFunSuiteLike with Matchers {
 
     import Optimiser.optimise
 
