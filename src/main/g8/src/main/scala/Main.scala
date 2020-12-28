@@ -27,7 +27,7 @@ object Main extends ParsingREPL[Exp] {
           |  e.g., (1 + 2) * 3 or 0 + 4 * 1
           |""".stripMargin
 
-    override def prompt () = "exp> "
+    override def prompt = "exp> "
 
     def parse(source : Source) : ParseResult[Exp] = {
         val parsers = new SyntaxAnalyser(positions)
