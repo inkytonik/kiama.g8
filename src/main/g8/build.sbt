@@ -33,12 +33,12 @@ outputStrategy in run := Some (StdoutOutput)
 
 libraryDependencies ++=
     Seq (
-        "org.bitbucket.inkytonik.kiama" %% "kiama" % "2.4.0",
-        "org.bitbucket.inkytonik.kiama" %% "kiama-extras" % "2.4.0",
-        "org.bitbucket.inkytonik.kiama" %% "kiama-extras" % "2.4.0" % "test" classifier ("tests"),
-        "org.scalatest" %% "scalatest" % "3.2.3" % "test",
-        "org.scalacheck" %% "scalacheck" % "1.15.2" % "test",
-        "org.scalatestplus" %% "scalacheck-1-15" % "3.2.3.0" % "test"
+        "org.bitbucket.inkytonik.kiama" %% "kiama" % "2.5.0",
+        "org.bitbucket.inkytonik.kiama" %% "kiama-extras" % "2.5.0",
+        "org.bitbucket.inkytonik.kiama" %% "kiama-extras" % "2.5.0" % "test" classifier ("tests"),
+        "org.scalatest" %% "scalatest" % "3.2.9" % "test",
+        "org.scalacheck" %% "scalacheck" % "1.15.4" % "test",
+        "org.scalatestplus" %% "scalacheck-1-15" % "3.2.9.0" % "test"
     )
 
 resolvers ++= Seq (
