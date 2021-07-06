@@ -23,11 +23,9 @@ shellPrompt in ThisBuild := {
 // Fork the runs and connect sbt's input and output to the forked process so
 // that we are immune to version clashes with the JLine library used by sbt
 
-fork in run := true
-
-connectInput in run := true
-
-outputStrategy in run := Some (StdoutOutput)
+run/fork := true
+run/connectInput := true
+run/outputStrategy := Some (StdoutOutput)
 
 // Dependencies
 
